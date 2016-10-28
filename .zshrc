@@ -1,19 +1,46 @@
-source ~/antigen.zsh
+###############
+# Zplug init
+###############
+if [[ ! -d ~/.zplug ]]; then
+    git clone https://github.com/zplug/zplug ~/.zplug
+    source ~/.zplug/init.zsh && zplug update --self
+fi
+source ~/.zplug/init.zsh
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+###############
+# PATHS
+###############
+export PATH=${HOME}/bin:/usr/local/bin:${PATH}
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export ZSH=$HOME/.zplug/repos/robbyrussell/oh-my-zsh
+export EDITOR=atom
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle command-not-found
-antigen bundle z
+###############
+# Zplug plugins
+###############
 
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle felixr/docker-zsh-completion
+autoload colors && colors
+setopt prompt_subst
 
-# Load the theme.
-antigen theme sunaku
+zplug "junegunn/fzf-bin", \
+    from:gh-r, \
+    as:command, \
+    rename-to:fzf, \
+    use:"*darwin*amd64*"
 
-# Tell antigen that you're done.
-antigen apply
+zplug "plugins/brew", from:oh-my-zsh, nice:10
+zplug "plugins/brew-cask", from:oh-my-zsh, nice:10
+zplug "plugins/git",   from:oh-my-zsh, nice:10
+zplug "plugins/osx", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
+zplug "plugins/colorize", from:oh-my-zsh
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "felixr/docker-zsh-completion"
+zplug "zsh-users/zsh-syntax-highlighting", nice:19
+zplug 'plugins/git', from:oh-my-zsh, nice:10
+zplug 'themes/sunaku', from:oh-my-zsh, nice:11
+
+zplug check || zplug install
+
+# Then, source packages and add commands to $PATH
+zplug load
