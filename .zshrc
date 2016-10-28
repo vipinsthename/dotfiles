@@ -38,7 +38,8 @@ zplug "zsh-users/zsh-history-substring-search"
 zplug "felixr/docker-zsh-completion"
 zplug "zsh-users/zsh-syntax-highlighting", nice:19
 zplug 'plugins/git', from:oh-my-zsh, nice:10
-zplug 'themes/sunaku', from:oh-my-zsh, nice:11
+zplug "mafredri/zsh-async", nice:11
+zplug "sindresorhus/pure", nice:11
 
 zplug check || zplug install
 
