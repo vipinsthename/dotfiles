@@ -146,12 +146,6 @@ cmap w!! w !sudo tee % >/dev/null
 set splitbelow
 set splitright
 
-" Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
