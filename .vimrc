@@ -139,7 +139,7 @@ let NERDTreeMapOpenSplit = '<C-x>'
 let NERDTreeMapOpenVSplit = '<C-v>'
 let NERDTreeMapOpenInTab = '<C-t>'
 " open NERDTree with `Ctrl-k`
-map <C-k> :NERDTreeToggle<CR>
+map <D-k> :NERDTreeToggle<CR>
 cmap w!! w !sudo tee % >/dev/null
 
 " Open new split panes to right and bottom, which feels more natural
@@ -153,11 +153,11 @@ set list listchars=tab:»·,trail:·,nbsp:·
 set nojoinspaces
 
 " Tab navigation like Firefox.
-nnoremap <C-S-tab> :tabprevious<CR>
-nnoremap <C-tab>   :tabnext<CR>
-nnoremap <C-t>     :tabnew<CR>
-nnoremap <C-w>     :tabclose<CR>
-inoremap <C-w>     <Esc>:tabclose<CR>i
-inoremap <C-S-tab> <Esc>:tabprevious<CR>i
-inoremap <C-tab>   <Esc>:tabnext<CR>i
-inoremap <C-t>     <Esc>:tabnew<CR>
+nnoremap <D-S-tab> :tabprevious<CR>
+nnoremap <D-tab>   :tabnext<CR>
+nnoremap <D-t>     :tabnew<CR>
+nnoremap <D-w>     :tabclose<CR>
+inoremap <D-w>     <Esc>:tabclose<CR>i
+inoremap <D-S-tab> <Esc>:tabprevious<CR>i
+inoremap <D-tab>   <Esc>:tabnext<CR>i
+inoremap <D-t>     <Esc>:tabnew<CR>
