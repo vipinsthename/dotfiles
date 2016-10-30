@@ -72,6 +72,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'raimondi/delimitmate'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -127,6 +128,8 @@ let mapleader=" "
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_tabs = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
 
