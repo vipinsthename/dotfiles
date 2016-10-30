@@ -161,3 +161,6 @@ inoremap <D-w>     <Esc>:tabclose<CR>i
 inoremap <D-S-tab> <Esc>:tabprevious<CR>i
 inoremap <D-tab>   <Esc>:tabnext<CR>i
 inoremap <D-t>     <Esc>:tabnew<CR>
+
+" CtrlP
+nnoremap <Leader>p :CtrlP<CR>
