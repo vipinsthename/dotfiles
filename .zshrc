@@ -45,3 +45,5 @@ zplug check || zplug install
 
 # Then, source packages and add commands to $PATH
 zplug load
+
+alias vim="mvim"
