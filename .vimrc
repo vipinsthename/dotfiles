@@ -1,6 +1,36 @@
 " VIM Configuration -- Vipin
 set nocompatible
 filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'rust-lang/rust.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'vadv/vim-chef'
+Plugin 'scrooloose/syntastic'
+Plugin 'phildawes/racer'
+Plugin 'sjl/badwolf'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'raimondi/delimitmate'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 set encoding=utf8
 " remap : to ; to avoid pressing Shift'
 " Set to auto read when a file is changed from the outside
@@ -48,35 +78,6 @@ set nowrap
 
 nnoremap ; :
 vnoremap ; :
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'rust-lang/rust.vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'vadv/vim-chef'
-Plugin 'scrooloose/syntastic'
-Plugin 'phildawes/racer'
-Plugin 'sjl/badwolf'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'raimondi/delimitmate'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
 
 " Start NERDTree
 autocmd VimEnter * NERDTree
