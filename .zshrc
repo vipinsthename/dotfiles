@@ -10,7 +10,7 @@ source ~/.zplug/init.zsh
 ###############
 # PATHS
 ###############
-export PATH=${HOME}/bin:/usr/local/bin:${PATH}
+export PATH=${HOME}/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:${PATH}
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export ZSH=$HOME/.zplug/repos/robbyrussell/oh-my-zsh
 export EDITOR=atom
@@ -47,3 +47,5 @@ zplug check || zplug install
 zplug load
 
 alias vim="mvim"
+alias delete-containers="docker rm -f \$(docker ps -aq)"
+alias ls="ls -lrtaG"
