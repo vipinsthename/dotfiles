@@ -1,0 +1,15 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.fontFamily": "SauceCodePro Nerd Font",
+    "editor.fontSize": 14,
+    "files.autoSave": "afterDelay",
+    "editor.tabSize": 4,
+    "editor.renderWhitespace": "all",
+    "window.openFilesInNewWindow": false,
+    "window.showFullPath": true,
+    "terminal.external.osxExec": "iTerm.app",
+    "editor.scrollBeyondLastLine": false,
+    "editor.cursorBlinking": "smooth",
+    "editor.renderIndentGuides": true,
+    "editor.renderLineHighlight": "all"
+}
