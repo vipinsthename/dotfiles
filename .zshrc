@@ -48,4 +48,4 @@ zplug load
 
 alias vim="mvim"
 alias delete-containers="docker rm -f \$(docker ps -aq)"
-alias ls="ls -lrtaG"
+alias ll="ls -lrtaG"
