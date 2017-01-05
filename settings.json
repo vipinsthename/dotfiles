@@ -11,5 +11,6 @@
     "editor.scrollBeyondLastLine": false,
     "editor.cursorBlinking": "smooth",
     "editor.renderIndentGuides": true,
-    "editor.renderLineHighlight": "all"
+    "editor.renderLineHighlight": "all",
+    "rust.rustLangSrcPath": "/Users/vipin/.cargo/rustsrc/rust/src"
 }
