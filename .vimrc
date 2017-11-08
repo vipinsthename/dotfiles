@@ -1,167 +1,127 @@
-" VIM Configuration -- Vipin
-set nocompatible
-filetype off
+set nocompatible              " be iMproved, required
+filetype on                   " filetype must be 'on' before setting it 'off'
+                              "   otherwise it exits with a bad status and breaks
+                              "   git commit.
+filetype off                  " required
+set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+let g:airline_powerline_fonts = 1
+let mapleader = "\<Space>"
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
+" let Vundle manage Vundle, require
 Plugin 'VundleVim/Vundle.vim'
+
+" Add nerdtree
 Plugin 'scrooloose/nerdtree'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'rust-lang/rust.vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'vadv/vim-chef'
-Plugin 'scrooloose/syntastic'
-Plugin 'phildawes/racer'
-Plugin 'sjl/badwolf'
-Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+" How can I close vim if the only window left open is a NERDTree?
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" How can I open NERDTree automatically when vim starts up on opening a directory?
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+" Theme Dracula
+Plugin 'dracula/vim'
+
+" Add fzf
+Plugin 'junegunn/fzf.vim'
+set rtp+=/usr/local/opt/fzf
+ 
+" Add ale 
+Plugin 'w0rp/ale'
+
+" Add airline and theme
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline_theme='dracula'
+
+" Git plugin
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+
+" Install easymotion
 Plugin 'easymotion/vim-easymotion'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'raimondi/delimitmate'
+
+" Add rust plugin
+Plugin 'rust-lang/rust.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-set encoding=utf8
-" remap : to ; to avoid pressing Shift'
-" Set to auto read when a file is changed from the outside
-set autoread
-" Use Unix as the standard file type
-set ffs=unix,dos,mac
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
+" Local dirs (centralize everything)
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
+
+" --- history / file handling ---
+set history=999             " Increase history (default = 20)
+set undolevels=999          " Moar undo (default=100)
+set autoread                " reload files if changed externally
+
+" --- backup and swap files ---
+" I save all the time, those are annoying and unnecessary...
 set nobackup
-set nowb
+set nowritebackup
 set noswapfile
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use spaces instead of tabs
-set expandtab
-" Be smart when using tabs ;)
-set smarttab
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4       " number of spaces in tab when editing
-set showcmd             " show command in bottom bar
-set cursorline          " highlight current line
-set wildmenu            " visual autocomplete for command menu
-set lazyredraw          " redraw only when we need to.
-set showmatch           " highlight matching [{()}]
-set foldenable          " enable folding
-set foldlevelstart=10   " open most folds by default
-set foldnestmax=10      " 10 nested fold max
-set foldmethod=indent   " fold based on indent level
-set history=1000
-set undolevels=1000 
+" --- search / regexp ---
+set gdefault                " RegExp global by default
+set magic                   " Enable extended regexes.
+set hlsearch                " highlight searches
+set incsearch               " show the `best match so far' astyped
+set ignorecase smartcase    " make searches case-insensitive, unless they
 
-" Linebreak on 500 characters
-set lbr
-set tw=500
+" --- keys ---
+set backspace=indent,eol,start  " allow backspacing over everything.
+set esckeys                     " Allow cursor keys in insert mode.
+set nostartofline               " Make j/k respect the columns
+set timeoutlen=500              " how long it wait for mapped commands
+set ttimeoutlen=100             " faster timeout for escape key and others
+set cursorline              	" Highlight current line
+set laststatus=2            	" Always show status line
+set number                  	" Enable line numbers.
+set numberwidth=5           	" width of numbers line (default on gvim is 4)
+set report=0                	" Show all changes.
+set showmode                	" Show the current mode.
+set showcmd                 	" show partial command on last line of screen.
+set showmatch               	" show matching parenthesis
+set splitbelow splitright   	" how to split new windows.
+set title                   	" Show the filename in the window title bar.
 
-set ai "Auto indent
-set si "Smart indent
-set nowrap
-
-nnoremap ; :
-vnoremap ; :
-
-" Start NERDTree
-autocmd VimEnter * NERDTree
-" Jump to the main window.
-autocmd VimEnter * wincmd p
-
-" -- Display
-set title
-set number
-set numberwidth=5
-set ruler
-set scrolloff=3
-set paste
-
-set guioptions=T
-
-" -- Search
-set ignorecase
-set smartcase
-set incsearch
-set hlsearch
-" turn off search highlight
-nnoremap <leader><space> :nohlsearch<CR>
-
-" -- Beeping
-set visualbell
+" --- remove sounds effects ---
 set noerrorbells
+set visualbell
 
-" Backspace behaves as expected
-set backspace=indent,eol,start
+" --- Indentation & Text wrap ---
+set expandtab                   " Expand tabs to spaces
+set autoindent smartindent      " auto/smart indent
+set copyindent                  " copy previous indentation on auto indent
+set softtabstop=2               " Tab key results in # spaces
+set tabstop=2                   " Tab is # spaces
+set shiftwidth=2                " The # of spaces for indenting.
+set smarttab                    " At start of line, <Tab> inserts shift width
+                                "   spaces, <Bs> deletes shift width spaces.
+set wrap                        " wrap lines
+set textwidth=80
 
-" Hide buffer file instead of switching to another buffer
-set hidden
+" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
-" -- Syntax highlighting
-syntax enable
-
-" Use solarized dark
-set background=dark
-colorscheme badwolf
-
-" Fonts
-set anti enc=utf-8
-set guifont=SauceCodePro\ Nerd\ Font:h12
-let g:airline_powerline_fonts = 1
-
-
-let mapleader=" "
-
-" airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#show_tabs = 1
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-" NERDTree
-let NERDTreeShowHidden = 1
-let NERDTreeMapOpenSplit = '<C-x>'
-let NERDTreeMapOpenVSplit = '<C-v>'
-let NERDTreeMapOpenInTab = '<C-t>'
-" open NERDTree with `Ctrl-k`
-map <D-k> :NERDTreeToggle<CR>
-cmap w!! w !sudo tee % >/dev/null
-
-" Open new split panes to right and bottom, which feels more natural
-set splitbelow
-set splitright
-
-" Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
-
-" Use one space, not two, after punctuation.
-set nojoinspaces
-
-" Tab navigation like Firefox.
-nnoremap <D-S-tab> :tabprevious<CR>
-nnoremap <D-tab>   :tabnext<CR>
-nnoremap <D-t>     :tabnew<CR>
-nnoremap <D-w>     :tabclose<CR>
-inoremap <D-w>     <Esc>:tabclose<CR>i
-inoremap <D-S-tab> <Esc>:tabprevious<CR>i
-inoremap <D-tab>   <Esc>:tabnext<CR>i
-inoremap <D-t>     <Esc>:tabnew<CR>
-
-" CtrlP
-nnoremap <Leader>p :CtrlP<CR>
+" Mappings
+map <C-e> :NERDTreeToggle<CR>
+noremap <leader>q :q<cr>
+nnoremap <leader>s :w<cr>
+inoremap <leader>s <C-c>:w<cr>
+nnoremap <Leader>p :Files<CR>
