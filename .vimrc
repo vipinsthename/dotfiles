@@ -157,6 +157,9 @@ map <C-t> :Term<CR>
 map <C-a> ggVG<CR>
 
 " Normal copy/paste
+nnoremap d "_d
+vnoremap d "_d
+vnoremap p "_dP
 vmap <C-c> y<Esc>i
 vmap <C-x> d<Esc>i
 map <C-v> pi
