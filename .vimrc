@@ -154,28 +154,41 @@ nnoremap <leader>s :w<CR>
 nnoremap <C-p> :Files<CR>
 inoremap <C-s> <C-c> :w<CR>
 map <C-t> :Term<CR>
-map <C-a> ggVG<CR>
 
 " Normal copy/paste
+" Do not store deleted lines on clipboard
 nnoremap d "_d
 vnoremap d "_d
 vnoremap p "_dP
+" CTRL-c copies and moved to insert mode
 vmap <C-c> y<Esc>i
+" CTRL-x copies and moved to insert mode
 vmap <C-x> d<Esc>i
+" CTRL-v pastes and moves to insert mode
 map <C-v> pi
 imap <C-v> <Esc>pi
+" CTRL-y deletes a line and moves to insert mode
 imap <C-y> <Esc>ddi
+" CTRL-z undoes
 map <C-z> <Esc>
 imap <C-z> <Esc>ui
+" Backspace deletes and moves to insert mode
+vmap <BS> d<Esc>i
+map <C-a> ggVG<CR>
+imap <C-a> <Esc>ggVG<CR>
 
 " shift+arrow selection
 nmap <S-Up> v<Up>
 nmap <S-Down> v<Down>
 nmap <S-Left> v<Left>
 nmap <S-Right> v<Right>
+nmap <C-S-Left> v0
+nmap <C-S-Right> v$
 vmap <S-Up> <Up>
 vmap <S-Down> <Down>
 vmap <S-Left> <Left>
+vmap <C-S-Left> 0
+vmap <C-S-Right> $
 vmap <S-Right> <Right>
 imap <S-Up> <Esc>v<Up>
 imap <S-Down> <Esc>v<Down>
