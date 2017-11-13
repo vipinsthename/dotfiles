@@ -8,18 +8,12 @@ let g:airline_powerline_fonts = 1
 let mapleader = "\<Space>"
 set mouse=a
 set clipboard+=unnamedplus
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, require
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.local/share/nvim/plugged')
 
 " Add nerdtree
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 " How can I close vim if the only window left open is a NERDTree?
@@ -28,22 +22,25 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
+" Add autocommentor
+Plug 'scrooloose/nerdcommenter'
+
 " Theme gruvbox
-" Plugin 'dracula/vim'
-Plugin 'morhetz/gruvbox'
+" Plug 'dracula/vim'
+Plug 'morhetz/gruvbox'
 
 " Split Terminal
-Plugin 'mklabs/split-term.vim'
+Plug 'mklabs/split-term.vim'
 
 " Add fzf
-Plugin 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'
 set rtp+=/usr/local/opt/fzf
-
-" Add ale
-Plugin 'w0rp/ale'
+ 
+" Add ale 
+Plug 'w0rp/ale'
 
 " Multiple cursors
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 let g:multi_cursor_use_default_mapping=0
 " Default mapping
 let g:multi_cursor_start_key='<C-n>'
@@ -51,22 +48,37 @@ let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_quit_key='<Esc>'
 
 " Add airline and theme
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 let g:airline_theme='gruvbox'
 
 " Git plugin
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 
 " Install easymotion
-Plugin 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 
 " Add rust plugin
-Plugin 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'sebastianmarkow/deoplete-rust'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+" Fully qualified path
+let g:deoplete#sources#rust#racer_binary='/Users/infrared/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='/Users/infrared/.source/rust/src'
+nmap <buffer> gd <plug>DeopleteRustGoToDefinitionDefault
+nmap <buffer> K  <plug>DeopleteRustShowDocumentation
 
-" All of your Plugins must be added before the following line
-call vundle#end()               " required
+" All of your Plugs must be added before the following line
+call plug#end()
+
 filetype plugin indent on       " required
 
 " Set colorscheme
@@ -135,13 +147,14 @@ command! -bang -nargs=* Rg
   \   <bang>0)
 
 
-" Mappings
+" My Mappings
 map <C-e> :NERDTreeToggle<CR>
 noremap <leader>q :q<CR>
 nnoremap <leader>s :w<CR>
 nnoremap <C-p> :Files<CR>
 inoremap <C-s> <C-c> :w<CR>
-map <C-`> :VTerm<CR>
+map <C-t> :Term<CR>
+map <C-a> ggVG<CR>
 
 " Normal copy/paste
 vmap <C-c> y<Esc>i
