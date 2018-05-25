@@ -53,7 +53,7 @@ zplug load
 
 alias vim="mvim"
 alias delete-containers="docker rm -f \$(docker ps -aq)"
-alias ll="ls -lhrtaG"
+alias ll="exa -l --sort=modified --git"
 alias dockerps="docker ps -a"
 source $HOME/.cargo/env
 export GOPATH=/Users/vipin/golang
