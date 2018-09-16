@@ -1,16 +1,39 @@
-// Place your settings in this file to overwrite the default settings
 {
-    "editor.fontFamily": "SauceCodePro Nerd Font",
+    "editor.fontFamily": "Source Code Pro for Powerline",
     "editor.fontSize": 14,
-    "files.autoSave": "afterDelay",
-    "editor.tabSize": 4,
-    "editor.renderWhitespace": "all",
-    "window.openFilesInNewWindow": false,
-    "window.showFullPath": true,
     "terminal.external.osxExec": "iTerm.app",
-    "editor.scrollBeyondLastLine": false,
-    "editor.cursorBlinking": "smooth",
-    "editor.renderIndentGuides": true,
-    "editor.renderLineHighlight": "all",
-    "rust.rustLangSrcPath": "/Users/vipin/.cargo/rustsrc/rust/src"
+    "workbench.startupEditor": "newUntitledFile",
+    "rust.rustup": {
+        "toolchain": "stable-x86_64-apple-darwin",
+        "nightlyToolchain": "nightly-x86_64-apple-darwin"
+    },
+    "rust.mode": "rls",
+    "rust.rls": {
+        "useRustfmt": true
+    },
+    "rust.goto_def_racer_fallback": true,
+    "editor.tabSize": 2,
+    "terminal.integrated.shell.linux": "/bin/zsh",
+    "terminal.integrated.fontSize": 14,
+    "rust.sysroot": "/Users/infrared/.rustup/toolchains/stable-x86_64-apple-darwin/",
+    "python.pythonPath": "/Users/infrared/.pyenv/versions/3.6.6/bin/python",
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    },
+    "window.zoomLevel": 0,
+    "gitlens.keymap": "none",
+    "gitlens.historyExplorer.enabled": true,
+    "explorer.confirmDelete": false,
+    "editor.renderWhitespace": "none",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Dracula"
 }
