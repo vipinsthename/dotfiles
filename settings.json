@@ -65,5 +65,12 @@
   "workbench.iconTheme": "material-icon-theme",
   // extensions
   "extensions.autoUpdate": true,
-  "editor.multiCursorModifier": "alt"
+  "editor.multiCursorModifier": "alt",
+  "sync.gist": "f9d84fa8f67b9b5b025030d38adb49ae",
+  "sync.quietSync": false,
+  "sync.removeExtensions": true,
+  "sync.syncExtensions": true,
+  "sync.autoDownload": false,
+  "sync.autoUpload": true,
+  "sync.forceDownload": false
 }
