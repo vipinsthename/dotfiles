@@ -1,39 +1,69 @@
 {
-    "editor.fontFamily": "Source Code Pro for Powerline",
-    "editor.fontSize": 14,
-    "terminal.external.osxExec": "iTerm.app",
-    "workbench.startupEditor": "newUntitledFile",
-    "rust.rustup": {
-        "toolchain": "stable-x86_64-apple-darwin",
-        "nightlyToolchain": "nightly-x86_64-apple-darwin"
-    },
-    "rust.mode": "rls",
-    "rust.rls": {
-        "useRustfmt": true
-    },
-    "rust.goto_def_racer_fallback": true,
-    "editor.tabSize": 2,
-    "terminal.integrated.shell.linux": "/bin/zsh",
-    "terminal.integrated.fontSize": 14,
-    "rust.sysroot": "/Users/infrared/.rustup/toolchains/stable-x86_64-apple-darwin/",
-    "python.pythonPath": "/Users/infrared/.pyenv/versions/3.6.6/bin/python",
-    "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true,
-        "suppressUpdateNotice": false,
-        "suppressWelcomeNotice": true
-    },
-    "window.zoomLevel": 0,
-    "gitlens.keymap": "none",
-    "gitlens.historyExplorer.enabled": true,
-    "explorer.confirmDelete": false,
-    "editor.renderWhitespace": "none",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Dracula"
+  // color theme
+  "workbench.colorCustomizations": {
+    "tab.inactiveBackground": "#18222D"
+  },
+  // editor
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.lineHeight": 26,
+  "editor.occurrencesHighlight": false,
+  "editor.overviewRulerBorder": false,
+  "editor.renderIndentGuides": false,
+  "editor.renderLineHighlight": "gutter",
+  "editor.snippetSuggestions": "top",
+  "editor.minimap.enabled": false,
+  "editor.cursorBlinking": "solid",
+  "editor.lineNumbers": "on",
+  "editor.cursorStyle": "line",
+  // search
+  "search.smartCase": true,
+  // terminal
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.shell.linux": "/bin/zsh",
+  "terminal.external.osxExec": "iTerm.app",
+  // files
+  "files.trimTrailingWhitespace": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "vendor": true,
+    "package-lock.json": true
+  },
+  // explorer
+  "explorer.openEditors.visible": 0,
+  "explorer.confirmDragAndDrop": false,
+  // python
+  "python.linting.pylintArgs": [
+    "--errors-only"
+  ],
+  // prettier
+  "editor.formatOnSave": true,
+  // fonts
+  "editor.fontFamily": "Source Code Pro for Powerline",
+  "terminal.integrated.fontSize": 13,
+  "editor.fontSize": 15,
+  "explorer.confirmDelete": false,
+  // python
+  "python.pythonPath": "/usr/local/bin/python3",
+  // TODO: maybe there is better?
+  "python.formatting.provider": "autopep8",
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": false,
+  "window.newWindowDimensions": "maximized",
+  // workbench
+  "workbench.statusBar.feedback.visible": false,
+  "workbench.fontAliasing": "antialiased",
+  "workbench.panel.defaultLocation": "right",
+  "workbench.activityBar.visible": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.editor.showIcons": false,
+  "workbench.colorTheme": "Dracula",
+  "workbench.iconTheme": "material-icon-theme",
+  // extensions
+  "extensions.autoUpdate": true,
+  "editor.multiCursorModifier": "alt"
 }
