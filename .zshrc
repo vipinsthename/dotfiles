@@ -74,3 +74,6 @@ alias tfa="terraform apply"
 alias tfd="terraform destroy"
 alias mfa="~/mfa.sh"
 alias diff="/usr/local/bin/diff-so-fancy"
+
+# This is for direnv - should be last line(?)
+eval "$(direnv hook zsh)"
