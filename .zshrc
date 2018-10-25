@@ -74,6 +74,16 @@ alias tfa="terraform apply"
 alias tfd="terraform destroy"
 alias mfa="~/mfa.sh"
 alias diff="/usr/local/bin/diff-so-fancy"
+alias top="vtop --theme wizard"
+
+# Setting rg as the default source for fzf
+export FZF_DEFAULT_COMMAND='rg --files'
+
+fo() {
+  local files
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && ${EDITOR:-code} "${files[@]}"
+}
 
 # This is for direnv - should be last line(?)
 eval "$(direnv hook zsh)"
